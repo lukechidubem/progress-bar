@@ -4,6 +4,8 @@ const progress = document.querySelector('.progress');
 const circles = document.querySelectorAll('.circle');
 const next = document.getElementById('next');
 const prev = document.getElementById('prev');
+const sun = document.getElementById('sun');
+const moon = document.getElementById('moon');
 
 let movement = 1;
 next.addEventListener('click', function () {
@@ -49,3 +51,17 @@ const update = function () {
     next.disabled = false;
   }
 };
+
+// Appearance (Light and Dark mode)
+moon.addEventListener('click', function () {
+  document.body.classList.add('dark');
+  moon.style.display = 'none';
+  sun.style.display = 'block';
+});
+
+sun.addEventListener('click', function () {
+  document.body.style.transition = '0.5s ease-in';
+  document.body.classList.remove('dark');
+  moon.style.display = 'block';
+  sun.style.display = 'none';
+});
